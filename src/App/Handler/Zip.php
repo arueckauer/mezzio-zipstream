@@ -10,12 +10,13 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 use ZipStream\Option\Archive;
+use ZipStream\ZipStream;
 
 use function dirname;
 use function file_get_contents;
 use function sprintf;
 
-class ZipStream implements RequestHandlerInterface
+class Zip implements RequestHandlerInterface
 {
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
@@ -28,18 +29,20 @@ class ZipStream implements RequestHandlerInterface
 
         $zipName = 'test.zip';
 
-        $stream = new CallbackStream(static function () use ($items, $zipName) {
-            $options = new Archive();
-            $options->setContentType('application/octet-stream');
+        $stream = new CallbackStream(
+            static function () use ($items, $zipName) {
+                $options = new Archive();
+                $options->setContentType('application/octet-stream');
 
-            $zip = new \ZipStream\ZipStream($zipName, $options);
+                $zip = new ZipStream($zipName, $options);
 
-            foreach ($items as $basename => $content) {
-                $zip->addFile($basename, $content);
+                foreach ($items as $basename => $content) {
+                    $zip->addFile($basename, $content);
+                }
+
+                $zip->finish();
             }
-
-            $zip->finish();
-        });
+        );
 
         $headers = [
             'Cache-Control'       => 1200,

@@ -19,7 +19,7 @@ return static function (
 
     $app->get(
         '/api/zip-stream',
-        App\Handler\ZipStream::class,
+        App\Handler\Zip::class,
         'api.zip-stream'
     );
 };
