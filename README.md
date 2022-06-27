@@ -1,3 +1,3 @@
 # mezzio-zipstream
 
-How to use ZipStream-PHP in a Mezzio app
+The [ZipStream](src/App/Handler/ZipStream.php) request handler illustrates the usage of [ZipStream-PHP](https://packagist.org/packages/maennchen/zipstream-php) in a [Mezzio](https://docs.mezzio.dev/) application.
