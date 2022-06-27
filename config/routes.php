@@ -16,4 +16,10 @@ return static function (
         App\Handler\Ping::class,
         'api.ping'
     );
+
+    $app->get(
+        '/api/zip-stream',
+        App\Handler\ZipStream::class,
+        'api.zip-stream'
+    );
 };
