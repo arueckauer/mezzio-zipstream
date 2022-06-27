@@ -11,6 +11,7 @@
         "laminas/laminas-diactoros": "^2.11",
         "laminas/laminas-servicemanager": "^3.12",
         "laminas/laminas-stdlib": "^3.10",
+        "maennchen/zipstream-php": "^2.2",
         "mezzio/mezzio": "^3.10",
         "mezzio/mezzio-fastroute": "^3.5",
         "mezzio/mezzio-helpers": "^5.8"
