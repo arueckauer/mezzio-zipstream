@@ -17,7 +17,7 @@ class ConfigProvider
     {
         return [
             'invokables' => [
-                Handler\PingHandler::class => Handler\PingHandler::class,
+                Handler\Ping::class => Handler\Ping::class,
             ],
             'factories'  => [],
         ];
